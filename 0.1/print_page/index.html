@@ -192,7 +192,7 @@ Edit mkdocs.yml and add make sure that print-site is at the bottom  </p>
       exclude:
 </code></pre>
 <h3 id="python_venv-mkdocs-material">MKDOCS - Material</h3>
-<p>WARNING - I turned this off and reverted to readthedocs
+<p>WARNING - I turned this off and reverted to readthedocs<br />
 <a href="https://github.com/squidfunk/mkdocs-material">Tutorial</a><br />
 ?pip install mkdocs-material  </p>
 <p>Edit mkdocs.yml and change the theme from readthedocs to material the following  </p>
@@ -247,7 +247,8 @@ Edit mkdocs.yml and add make sure that print-site is at the bottom  </p>
   ? sudo git config --global credential.helper store<br />
   ? git config --global --add safe.directory /home/darkling123/NETWORKDRIVE/James/04_SYSTEMS/debian</p>
 <h2 id="python_venv-mkdocs-versioning-mike">MKDOCS - versioning (mike)</h2>
-<p>? pip install mike<br />
+<p>Inside the following location /NETWORKDRIVE/James/04_SYSTEMS/debian/<br />
+  ? pip install mike<br />
   Edit mkdocs.yml and add the following  </p>
 <pre><code>plugins:
   - mike:
@@ -261,11 +262,21 @@ Edit mkdocs.yml and add make sure that print-site is at the bottom  </p>
       javascript_dir: js
 </code></pre>
 <p>Now use the following  </p>
-<p>mkdocs gh-deploy</p>
-<p>? mike delete --all<br />
+<p>? mkdocs gh-deploy
+  ? mike delete --all</p>
+<p>The following 
   ? mike deploy 0.1<br />
   ? mike set-default 0.1
-  ? mike serve --dev-addr 0.0.0.0:8000 &amp;  </p>
+  ? mike serve --dev-addr 0.0.0.0:8000 &amp;<br />
+  sss</p>
+<h2 id="python_venv-mkdocs-awesome-navigation">MKDOCS - awesome navigation</h2>
+<p><a href="https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin">Tutorial</a>
+  ? pip install mkdocs-awesome-pages-plugin<br />
+  Edit mkdocs.yml and add the following  </p>
+<pre><code>plugins:
+    - search
+    - awesome-pages
+</code></pre>
 <h2 id="python_venv-mkdocs-nginx-under-python-venv-myenv">MKDOCS - nginx (under python venv : myenv)</h2>
 <ol>
 <li>
