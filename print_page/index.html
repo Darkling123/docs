@@ -267,9 +267,11 @@ Edit mkdocs.yml and add make sure that print-site is at the bottom  </p>
 <p>The following 
   ? mike deploy 0.1<br />
   ? mike set-default 0.1
-  ? mike serve --dev-addr 0.0.0.0:8000 &amp;<br />
-  ssssssssssss
-  asdasdasdasd</p>
+  ? mike serve --dev-addr 0.0.0.0:8000 &amp;  </p>
+<p>Noticed that any immediate changes don't show up automatically anymore on the served web page.
+  Therefore can use the following command to update the immediate version
+  However, noting this will likely impact the cucrrent version, look to update on a new version.
+  mike deploy --update 0.1</p>
 <h2 id="python_venv-mkdocs-awesome-navigation">MKDOCS - awesome navigation</h2>
 <p><a href="https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin">Tutorial</a>
   ? pip install mkdocs-awesome-pages-plugin<br />
@@ -278,6 +280,46 @@ Edit mkdocs.yml and add make sure that print-site is at the bottom  </p>
     - search
     - awesome-pages
 </code></pre>
+<h2 id="python_venv-mkdocs-live-edit">MKDOCS - Live Edit</h2>
+<p>WARNING - I belive this only works for local connection (127.0.0.1) therefore turning off.
+<a href="https://github.com/EddyLuten/mkdocs-live-edit-plugin">Tutorial</a><br />
+? pip install mkdocs-live-edit-plugin  </p>
+<pre><code>plugins:
+  - live-edit
+</code></pre>
+<h2 id="python_venv-convert-windows-files-to-unix">Convert windows files to unix</h2>
+<p>? sudo apt install dos2unix  </p>
+<h2 id="python_venv-make-a-script-to-run-the-mike-deploy-and-also-backup-the-yml-and-markdown-files-on-the-network-drive">Make a script to run the mike deploy and also backup the yml and markdown files on the network drive</h2>
+<p>Location is 
+~/NETWORKDRIVE\James\04_SYSTEMS\debian\mkdocs
+Script is </p>
+<pre><code>#!/bin/bash
+
+pkill mkdocs
+pkill mike
+
+# Get the version as the first argument
+VERSION=$1
+
+# Define the backup directory
+BACKUP_DIR=&quot;backups/$VERSION&quot;
+
+# Create the backup directory for the current version (if it doesn't exist)
+mkdir -p $BACKUP_DIR
+
+# Copy the mkdocs.yml file to the backup directory, forcing overwrite
+cp -f mkdocs.yml $BACKUP_DIR/
+
+# Copy all Markdown files (assu ming they are in the docs/ directory) to the backup directory, forcing overwrite
+cp -rf docs/ $BACKUP_DIR/
+
+# Deploy the new version with mike
+mike deploy $VERSION
+
+echo &quot;Backup and deployment of version $VERSION completed.&quot;
+
+</code></pre>
+<p>? ./backup_and_deploy.sh v0.2</p>
 <h2 id="python_venv-mkdocs-nginx-under-python-venv-myenv">MKDOCS - nginx (under python venv : myenv)</h2>
 <ol>
 <li>
