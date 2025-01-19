@@ -270,7 +270,7 @@ Edit mkdocs.yml and add make sure that print-site is at the bottom  </p>
   ? mike serve --dev-addr 0.0.0.0:8000 &amp;  </p>
 <p>Noticed that any immediate changes don't show up automatically anymore on the served web page.
   Therefore can use the following command to update the immediate version
-  However, noting this will likely impact the cucrrent version
+  However, noting this will likely impact the cucrrent version, look to update on a new version.
   mike deploy --update 0.1</p>
 <h2 id="python_venv-mkdocs-awesome-navigation">MKDOCS - awesome navigation</h2>
 <p><a href="https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin">Tutorial</a>
@@ -279,6 +279,12 @@ Edit mkdocs.yml and add make sure that print-site is at the bottom  </p>
 <pre><code>plugins:
     - search
     - awesome-pages
+</code></pre>
+<h2 id="python_venv-mkdocs-live-edit">MKDOCS - Live Edit</h2>
+<p><a href="https://github.com/EddyLuten/mkdocs-live-edit-plugin">Tutorial</a><br />
+? pip install mkdocs-live-edit-plugin  </p>
+<pre><code>plugins:
+  - live-edit
 </code></pre>
 <h2 id="python_venv-mkdocs-nginx-under-python-venv-myenv">MKDOCS - nginx (under python venv : myenv)</h2>
 <ol>
